@@ -1,142 +1,167 @@
-# URL Shortener
+🔗 URL Shortener
+A modern, user-friendly React-based web application to shorten long URLs, track usage stats, and manage custom expiration times — all built with Vite and Material UI.
 
-A modern React-based URL shortening web application built with Vite and Material UI.
+✨ Features
+Shorten Multiple URLs – Add up to 5 URLs at once
 
-## Features
+Custom Expiration Times – Set expiry from 15 minutes to 1 month
 
-- **Multi-URL Shortening**: Shorten up to 5 URLs at once
-- **Custom Validity Periods**: Set expiration times from 15 minutes to 1 month
-- **Custom Shortcodes**: Option to create custom alphanumeric shortcodes
-- **Click Tracking**: Monitor redirects with timestamp, source, and geo-location data
-- **Statistics Dashboard**: View detailed analytics for all shortened URLs
-- **Automatic Redirection**: Seamless redirect handling for shortened URLs
-- **Responsive Design**: Modern UI built with Material UI components
+Custom Shortcodes – Create your own shortcodes or let the app auto-generate them
 
-## Tech Stack
+Click Tracking – Tracks click timestamps, sources, and (mock) geo-location
 
-- **Frontend**: React 19, Vite
-- **UI Framework**: Material UI (MUI)
-- **Routing**: React Router DOM
-- **Storage**: LocalStorage
-- **Logging**: Custom logging middleware
+Analytics Dashboard – See detailed stats for every shortened link
 
-## Getting Started
+Instant Redirection – Short URLs redirect instantly to the original
 
-### Prerequisites
+Responsive Design – Clean UI optimized for all screen sizes
 
-- Node.js (v16 or higher)
-- npm or yarn
+🛠 Tech Stack
+Frontend: React 19, Vite
 
-### Installation
+UI: Material UI (MUI)
 
-1. Clone the repository:
-```bash
-git clone <repository-url>
+Routing: React Router DOM
+
+Storage: Browser localStorage
+
+Middleware: Custom Logging
+
+🚀 Getting Started
+Prerequisites
+Node.js v16+
+
+npm or yarn
+
+Installation
+bash
+Copy
+Edit
+git clone https://github.com/JustNikhill/A2305222657.git
 cd url-shortener
-```
-
-2. Install dependencies:
-```bash
 npm install
-```
-
-3. Start the development server:
-```bash
+Running the App
+bash
+Copy
+Edit
 npm run dev
-```
+Open your browser and go to: http://localhost:3000
 
-4. Open your browser and navigate to `http://localhost:3000`
+🧪 How It Works
+🔨 Shorten URLs
+Go to the Home page
 
-## Usage
+Enter up to 5 long URLs
 
-### Creating Short URLs
+(Optional) Set custom validity periods (default is 30 minutes)
 
-1. Navigate to the Home page
-2. Enter up to 5 long URLs
-3. Optionally set custom validity periods (default: 30 minutes)
-4. Optionally provide custom shortcodes (auto-generated if not provided)
-5. Click "Shorten URLs" to generate shortened links
+(Optional) Provide custom shortcodes
 
-### Viewing Statistics
+Click “Shorten URLs” to generate your links
 
-1. Navigate to the Statistics page
-2. View all created URLs with their:
-   - Original and shortened URLs
-   - Expiry times and status
-   - Click counts and detailed analytics
-   - Source information and geo-location data
+📊 View Statistics
+Navigate to the Statistics page to see:
 
-### URL Redirection
+Original + shortened URLs
 
-- Shortened URLs follow the format: `http://localhost:3000/{shortcode}`
-- Clicking a shortened URL automatically redirects to the original URL
-- Each redirect is tracked with timestamp, source, and location data
+Expiry times, status, and click count
 
-## Project Structure
+Click details: timestamps, sources, and fake geo-locations
 
-```
+🔁 Redirect Logic
+Shortened URLs look like:
+
+arduino
+Copy
+Edit
+http://localhost:3000/{shortcode}
+When someone visits a short URL:
+
+They’re instantly redirected to the original link
+
+A click record is logged with timestamp, source info, and (mocked) geo-data
+
+📁 Project Structure
+bash
+Copy
+Edit
 src/
-├── components/          # Reusable UI components
-│   ├── UrlForm.jsx     # URL input form component
-│   └── RedirectHandler.jsx # URL redirection handler
-├── pages/              # Page components
-│   ├── HomePage.jsx    # Main URL shortening page
-│   └── StatisticsPage.jsx # Statistics dashboard
-├── routes/             # Routing configuration
-│   └── AppRouter.jsx   # Main router setup
-├── utils/              # Utility functions
-│   ├── helpers.js      # Helper functions (validation, formatting)
-│   ├── logger.js       # Custom logging middleware
-│   └── storage.js      # LocalStorage management
-├── App.jsx             # Main app component
-└── main.jsx           # Application entry point
-```
+├── components/          # Reusable UI pieces
+│   ├── UrlForm.jsx      # Form for entering URLs
+│   └── RedirectHandler.jsx # Handles redirects
+├── pages/               # App pages
+│   ├── HomePage.jsx     # Main page for shortening
+│   └── StatisticsPage.jsx # Analytics dashboard
+├── routes/
+│   └── AppRouter.jsx    # React Router config
+├── utils/
+│   ├── helpers.js       # Validation, formatting, etc.
+│   ├── logger.js        # Console logging middleware
+│   └── storage.js       # LocalStorage utilities
+├── App.jsx              # Main app wrapper
+└── main.jsx             # Entry point
+🔍 Features Explained
+✅ URL Validation
+Ensures proper format (must start with http:// or https://)
 
-## Features in Detail
+Validates custom shortcodes (alphanumeric, no duplicates)
 
-### URL Validation
-- Validates URL format (http/https)
-- Ensures custom shortcodes are alphanumeric and unique
-- Validates validity periods (positive integers)
+Ensures valid expiry inputs
 
-### Click Tracking
-- Records timestamp of each redirect
-- Captures referer information
-- Generates fake geo-location data (India, USA, UK, etc.)
-- Stores user agent information
+📈 Click Tracking
+Logs each click with:
 
-### Data Persistence
-- All data stored in browser's localStorage
-- Automatic data persistence across sessions
-- Option to clear all data from statistics page
+Timestamp
 
-### Custom Logging
-- Comprehensive logging of all key actions
-- Tracks URL creation, redirection, and validation errors
-- Development-friendly console output
+Referrer URL
 
-## Available Scripts
+Simulated geo-location (India, USA, UK, etc.)
 
-- `npm run dev` - Start development server
-- `npm run build` - Build for production
-- `npm run preview` - Preview production build
-- `npm run lint` - Run ESLint
+Browser/user-agent info
 
-## Browser Support
+💾 Persistent Storage
+Everything is saved in localStorage
 
-- Chrome (recommended)
-- Firefox
-- Safari
-- Edge
+Data persists across page reloads
 
-## Contributing
+Option to clear all saved data via the stats page
 
-1. Fork the repository
-2. Create a feature branch
-3. Make your changes
-4. Test thoroughly
-5. Submit a pull request
+🧩 Custom Logging
+Developer-friendly logs in the console
 
-## License
+Tracks:
 
-This project is open source and available under the [MIT License](LICENSE).
+URL creation
+
+Redirections
+
+Errors and validations
+
+🧪 Available Scripts
+bash
+Copy
+Edit
+npm run dev      # Start development server
+npm run build    # Build production-ready version
+npm run preview  # Preview production build
+npm run lint     # Run ESLint checks
+🌍 Browser Support
+Chrome ✅
+
+Firefox ✅
+
+Safari ✅
+
+Edge ✅
+
+🤝 Contributing
+Fork this repo
+
+Create a new branch for your feature
+
+Make and test your changes
+
+Submit a pull request
+
+📄 License
+Released under the MIT License.
